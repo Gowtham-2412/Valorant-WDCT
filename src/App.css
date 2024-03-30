@@ -1,8 +1,1 @@
-@font-face {
-  font-family: ValorantFont;
-  src: url(./assets/fonts/ValoFont.ttf) format(truetype);
-}
 
-h1 {
-  font-family: ValorantFont;
-}

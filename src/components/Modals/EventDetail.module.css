@@ -1,0 +1,77 @@
+:root {
+  --modalbg: #0f1923;
+  --textColorR: #ff4655;
+}
+@font-face {
+  font-family: ValorantFont;
+  src: url(../../assets/fonts/ValoFont.ttf) format(truetype);
+}
+
+h1 {
+  font-family: ValorantFont;
+}
+h4 {
+  font-family: ValorantFont;
+}
+.venueimg {
+  height: 300px;
+  width: 200px;
+  margin-right: 50px;
+  margin-left: 20px;
+}
+.modal-header {
+  background-color: var(--modalbg);
+}
+/* .modal-body {
+    background-color: var(--modalbg);
+    display: flex;
+  } */
+.modal-footer {
+  background-color: #0f1923;
+}
+.eventHead {
+  color: #ffffff;
+}
+.eventDet {
+  color: #ffffff;
+  font-family: ValorantFont;
+}
+.modalbody {
+  background-color: var(--modalbg);
+  display: flex;
+}
+.ReventDet {
+  color: var(--textColorR);
+}
+.WeventDet {
+  color: #ffffff;
+}
+.btn-close {
+  color: #ffffff;
+  background-color: #ffffff;
+  background-image: url();
+}
+.rows1 {
+  display: flex;
+}
+.rows2 {
+  display: flex;
+  margin-top: 10px;
+}
+.rows3 {
+  display: flex;
+  margin-top: 10px;
+}
+.rows4 {
+  display: flex;
+  margin-top: 10px;
+}
+.eventDetail {
+  display: flex;
+}
+.descrip {
+  color: #ffffff;
+}
+closeButton {
+  background-color: aqua;
+}
