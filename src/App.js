@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
@@ -15,6 +16,7 @@ function Example() {
       <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
+      <h1>daskjdajsd</h1>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
