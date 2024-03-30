@@ -1,0 +1,36 @@
+:root {
+  --modalbg: #0f1923;
+  --textColorR: #ff4655;
+  --textColorW: #ffffff;
+}
+h1 {
+  color: var(--textColorW);
+}
+h4 {
+  color: var(--textColorW);
+}
+.modalheader {
+  background-color: var(--modalbg);
+}
+.modalbody {
+  background-color: var(--modalbg);
+}
+.modalfooter {
+  background-color: var(--modalbg);
+}
+.formbg {
+  color: #ffffff77;
+  padding: 10px;
+}
+#formgrop {
+  color: #ffffff;
+}
+#formGridEmail {
+  color: #ffffff;
+}
+.btn-close {
+  background-color: #ff4655;
+}
+#formGridPayment {
+  background-color: #ff4655;
+}

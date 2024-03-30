@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
-import "./EventDetail.css";
+import Eventcss from "./EventDetail.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import venue from "../../assets/imgs/Venue.png";
@@ -14,31 +14,34 @@ function MyVerticallyCenteredModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header closeButton className={Eventcss.modalheader}>
         <Modal.Title id="contained-modal-title-vcenter">
-          <h1 className="eventHead">Event Details</h1>
+          <h1 className={Eventcss.eventHead}>Event Details</h1>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className="modalbody">
-        <img className="venueimg" src={venue} alt="hguiguigb" />
-        <div className="eventDetails">
-          <div className="rows1">
-            <h4 className="ReventDet">MATCH TYPE - </h4>
-            <h4 className="WeventDet"> LOREN IPSUM</h4>
+      <Modal.Body className={Eventcss.modalbody}>
+        <img className={Eventcss.venueimg} src={venue} alt="hguiguigb" />
+        <div className={Eventcss.eventDetails}>
+          <div className={Eventcss.rows1}>
+            <h4 className={Eventcss.ReventDet}>MATCH TYPE - </h4>
+            <h4 className={Eventcss.WeventDet}> LOREN IPSUM</h4>
           </div>
-          <div className="rows2">
-            <h4 className="ReventDet">VENUE - </h4>
-            <h4 className="WeventDet"> NAB 601</h4>
+          <div className={Eventcss.rows2}>
+            <h4 className={Eventcss.ReventDet}>VENUE - </h4>
+            <h4 className={Eventcss.WeventDet}> NAB 601</h4>
           </div>
-          <div className="rows3">
-            <h4 className="ReventDet">TIME - </h4>
-            <h4 className="WeventDet"> 10:00 PM - 3:00 AM 8th April ‘24</h4>
+          <div className={Eventcss.rows3}>
+            <h4 className={Eventcss.ReventDet}>TIME - </h4>
+            <h4 className={Eventcss.WeventDet}>
+              {" "}
+              10:00 PM - 3:00 AM 8th April ‘24
+            </h4>
           </div>
-          <div className="rows4 ">
-            <h4 className="ReventDet">Description - </h4>
+          <div className={Eventcss.row4}>
+            <h4 className={Eventcss.ReventDet}>Description - </h4>
           </div>
           <div>
-            <p className="descrip">
+            <p className={Eventcss.descrip}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel
               justo eget sapien aliquet vehicula. Nullam sit amet felis eget
               nulla fermentum cursus. Cras condimentum ipsum vitae purus
@@ -50,7 +53,7 @@ function MyVerticallyCenteredModal(props) {
           </div>
         </div>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className={Eventcss.modalfooter}>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>

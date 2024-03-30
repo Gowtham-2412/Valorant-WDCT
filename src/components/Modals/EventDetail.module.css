@@ -1,6 +1,7 @@
 :root {
   --modalbg: #0f1923;
   --textColorR: #ff4655;
+  --textColorW: #ffffff;
 }
 @font-face {
   font-family: ValorantFont;
@@ -19,21 +20,21 @@ h4 {
   margin-right: 50px;
   margin-left: 20px;
 }
-.modal-header {
+.modalheader {
   background-color: var(--modalbg);
 }
 /* .modal-body {
     background-color: var(--modalbg);
     display: flex;
   } */
-.modal-footer {
-  background-color: #0f1923;
+.modalfooter {
+  background-color: var(--modalbg);
 }
 .eventHead {
-  color: #ffffff;
+  color: var(--textColorW);
 }
 .eventDet {
-  color: #ffffff;
+  color: var(--textColorW);
   font-family: ValorantFont;
 }
 .modalbody {
@@ -44,12 +45,10 @@ h4 {
   color: var(--textColorR);
 }
 .WeventDet {
-  color: #ffffff;
+  color: var(--textColorW);
 }
 .btn-close {
-  color: #ffffff;
-  background-color: #ffffff;
-  background-image: url();
+  background-image: url(../../assets/imgs/Vector.png);
 }
 .rows1 {
   display: flex;
@@ -70,8 +69,13 @@ h4 {
   display: flex;
 }
 .descrip {
-  color: #ffffff;
+  color: var(--textColorW);
 }
 closeButton {
   background-color: aqua;
+}
+@media (max-width: 450px) {
+  h4 {
+    font-size: small;
+  }
 }
