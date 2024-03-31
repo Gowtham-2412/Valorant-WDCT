@@ -17,9 +17,9 @@ export const Card = ({ element = {}, index = 0 }) => {
             {title.length != 0 && <h3 className={contactcss.card__name}>{title}</h3>}
             {subtitle.length != 0 && <h3 className={contactcss.card__name}>{subtitle}</h3>}
             <div className={contactcss.socials}>
-                {instagram.length != 0 && <a href={linkedin} className={contactcss.iconAnchor}><FaInstagram className={contactcss.icons} style={{ fontSize: '30' }} /></a>}
-                {linkedin.length != 0 && <a href={instagram} className={contactcss.iconAnchor}><CiLinkedin className={contactcss.icons} style={{ fontSize: '35' }} /></a>}
-                {twitter.length != 0 && <a href={twitter} className={contactcss.iconAnchor}><FaXTwitter className={contactcss.icons} style={{ fontSize: '25' }} /></a>}
+                {instagram.length != 0 && <a href={linkedin} target='_blank' className={contactcss.iconAnchor}><FaInstagram className={contactcss.icons} style={{ fontSize: '30' }} /></a>}
+                {linkedin.length != 0 && <a href={instagram} target='_blank' className={contactcss.iconAnchor}><CiLinkedin className={contactcss.icons} style={{ fontSize: '35' }} /></a>}
+                {twitter.length != 0 && <a href={twitter} target='_blank' className={contactcss.iconAnchor}><FaXTwitter className={contactcss.icons} style={{ fontSize: '25' }} /></a>}
             </div>
         </div>
     )

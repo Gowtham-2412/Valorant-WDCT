@@ -1,11 +1,9 @@
-import Button from "react-bootstrap/Button";
-import React, { useState } from "react";
+import React from "react";
 import Eventcss from "./EventDetail.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import venue from "../../assets/imgs/Venue.png";
 import Register from "./Register";
-import Redbtn from "../Buttons/redBtn";
 import Blkbtn from "../Buttons/blkbtn";
 import CloseButton from "react-bootstrap/CloseButton";
 
@@ -68,7 +66,7 @@ function MyVerticallyCenteredModal(props) {
         </div>
       </Modal.Body>
       <Modal.Footer className={Eventcss.modalfooter}>
-        <a href="#">
+        <a href="Faq">
           <Blkbtn text="READ FAQS" />
         </a>
         <Register className={Eventcss.registerbtn} />
