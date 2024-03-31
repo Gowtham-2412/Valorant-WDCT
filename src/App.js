@@ -6,7 +6,7 @@ import { Prizes } from "./pages/Prizes/Prizes";
 import { FAQ } from "./pages/FAQ/FAQ";
 import { Contact } from "./pages/Contact/Contact";
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
