@@ -25,7 +25,7 @@ export const Navbar = () => {
                 </div>
                 <div className={`${navcss.main_list} ${showNavLinks ? navcss.active : ''}`}>
                     <ul>
-                        <li><a href="Home">HOME</a></li>
+                        <li><a href="/">HOME</a></li>
                         <li><a href="Prizes">PRIZES</a></li>
                         <li><a href="FAQ">FAQS</a></li>
                         <li><a href="Contact">CONTACT US</a></li>
