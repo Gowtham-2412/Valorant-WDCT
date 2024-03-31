@@ -5,14 +5,13 @@
 
 .nav {
     width: 100%;
-    position: fixed;
     justify-content: space-around;
     font-family: ValorantFont;
 }
 
 .container {
     display: flex;
-    padding: 2rem 2rem 0 5rem;
+    padding: 1rem 1rem 0 3rem;
     align-items: center;
 }
 
@@ -25,6 +24,10 @@
     height: 6.25rem;
     border-radius: 3.75rem;
     margin-right: 1.5rem
+}
+
+.main_list {
+    z-index: 2;
 }
 
 .main_list ul {
@@ -64,7 +67,7 @@
     display: none;
     flex-direction: column;
     cursor: pointer;
-    z-index: 2;
+    z-index: 1000;
     margin-right: 4rem;
 }
 
@@ -103,7 +106,7 @@
         height: 100vh;
         padding-top: 60px;
         text-align: center;
-        z-index: 1;
+
     }
 
     .main_list.active {
@@ -122,7 +125,6 @@
 
 @media (max-width:480px) {
     .logo img {
-
         width: 3rem;
         height: 3rem;
         border-radius: 1.5rem;
