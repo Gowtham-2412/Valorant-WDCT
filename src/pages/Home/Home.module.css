@@ -1,0 +1,35 @@
+@font-face {
+    font-family: ValorantFont;
+    src: url(../../assets/fonts/ValoFont.ttf) format(truetype);
+}
+
+.main {
+    padding-top: 12rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main h1 {
+    color: #ffffff;
+    font-family: ValorantFont;
+    font-size: 7rem;
+    text-align: center;
+}
+
+@media screen and (max-width:750px) {
+    .main h1 {
+        font-size: 5.8rem;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .main h1 {
+        font-size: 4.9rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .main h1 {
+        font-size: 3.9rem;
+    }
+}
