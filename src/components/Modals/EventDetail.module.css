@@ -108,7 +108,7 @@ h4 {
     height: 300px;
     margin-bottom: 20px;
   }
-  .imgbox {
+  .imgBox {
     display: flex;
     justify-content: center;
   }

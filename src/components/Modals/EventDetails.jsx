@@ -30,7 +30,9 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body className={Eventcss.modalbody}>
         <div className={Eventcss.container}>
-          <img className={Eventcss.venueimg} src={venue} alt="hguiguigb" />
+          <div className={Eventcss.imgBox}>
+            <img className={Eventcss.venueimg} src={venue} alt="hguiguigb" />
+          </div>
           <div className={Eventcss.eventDetails}>
             <div className={Eventcss.rows1}>
               <h4 className={Eventcss.ReventDet}>MATCH TYPE - </h4>
