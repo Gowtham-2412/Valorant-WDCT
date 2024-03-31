@@ -30,10 +30,7 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body className={Eventcss.modalbody}>
         <div className={Eventcss.container}>
-          <div className={Eventcss.imgbox}>
-            <img className={Eventcss.venueimg} src={venue} alt="hguiguigb" />
-          </div>
-
+          <img className={Eventcss.venueimg} src={venue} alt="hguiguigb" />
           <div className={Eventcss.eventDetails}>
             <div className={Eventcss.rows1}>
               <h4 className={Eventcss.ReventDet}>MATCH TYPE - </h4>
@@ -79,15 +76,15 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function EventDetails() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [EmodalShow, EsetModalShow] = React.useState(false);
 
   return (
     <>
-      <Blkbtn text="EVENT DETAILS" onClick={() => setModalShow(true)} />
+      <Blkbtn text="EVENT DETAILS" onClick={() => EsetModalShow(true)} />
 
       <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
+        show={EmodalShow}
+        onHide={() => EsetModalShow(false)}
       />
     </>
   );

@@ -12,6 +12,7 @@ import { Spinner } from "react-bootstrap";
 import axios from "axios";
 import Redbtn from "../Buttons/redBtn";
 import Blkbtn from "../Buttons/blkbtn";
+import EventDetails from "./EventDetails";
 
 function MyVerticallyCenteredModal(props) {
   const [fullName, setFullName] = useState("");
@@ -167,15 +168,20 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function Register() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [RmodalShow, RsetModalShow] = React.useState(false);
+  EventDetails();
+  const handlebtn = () => {
+    RsetModalShow(true);
+    console.log("Hellooo");
+  };
 
   return (
     <>
-      <Redbtn text="Register!" onClick={() => setModalShow(true)} />
+      <Redbtn text="Register!" onClick={handlebtn} />
 
       <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
+        show={RmodalShow}
+        onHide={() => RsetModalShow(false)}
       />
     </>
   );
