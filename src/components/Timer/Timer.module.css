@@ -1,0 +1,90 @@
+@font-face {
+    font-family: ValorantFont;
+    src: url(../../assets/fonts/ValoFont.ttf) format(truetype);
+}
+
+.timerContainer {
+    background-color: rgba(217, 217, 217, 0.1);
+    border: 1px solid;
+    border-color: antiquewhite;
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.textContainer {
+    margin: 0 12px;
+}
+
+.textDigit {
+    font-size: 48px;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.textTimeFormat {
+    margin-top: 15px;
+    font-size: 24px;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.mainContainer {
+    display: flex;
+    width: 100%;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    font-family: ValorantFont;
+}
+
+@media screen and (max-width:750px) {
+    .textDigit {
+        font-size: 40px
+    }
+
+    .timerContainer {
+        height: 90px;
+        width: 90px;
+    }
+
+    .textTimeFormat {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .textDigit {
+        font-size: 30px
+    }
+
+    .timerContainer {
+        height: 70px;
+        width: 70px;
+    }
+
+    .textTimeFormat {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .textDigit {
+        font-size: 30px
+    }
+
+    .timerContainer {
+        height: 65px;
+        width: 65px;
+    }
+
+    .textTimeFormat {
+        font-size: 15px;
+    }
+}
