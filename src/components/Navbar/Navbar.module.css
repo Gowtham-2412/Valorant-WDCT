@@ -1,140 +1,140 @@
 @font-face {
-    font-family: ValorantFont;
-    src: url(../../assets/fonts/ValoFont.ttf) format(truetype);
+  font-family: ValorantFont;
+  src: url(../../assets/fonts/ValoFont.ttf) format(truetype);
 }
 
 .nav {
-    width: 100%;
-    position: fixed;
-    justify-content: space-around;
-    font-family: ValorantFont;
+  width: 100%;
+  justify-content: space-around;
+  font-family: ValorantFont;
 }
 
 .container {
-    display: flex;
-    padding: 2rem 2rem 0 5rem;
-    align-items: center;
+  display: flex;
+  padding: 1rem 1rem 0 3rem;
+  align-items: center;
 }
 
 .logo {
-    flex: 1;
+  flex: 1;
 }
 
 .logo img {
-    width: 6.25rem;
-    height: 6.25rem;
-    border-radius: 3.75rem;
-    margin-right: 1.5rem
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 3.75rem;
+  margin-right: 1.5rem;
+}
+
+.main_list {
+  z-index: 2;
 }
 
 .main_list ul {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 .main_list ul li {
-    padding-right: 3.75rem;
+  padding-right: 3.75rem;
 }
 
 .main_list ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 1.5rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
 }
 
 .main_list ul li a:hover {
-    color: #FF4655;
-    transition: 0.7s;
+  color: #ff4655;
+  transition: 0.7s;
 }
 
-
-@media (max-width:1300px) {
-    .container {
-        padding: 2rem 1rem 0 4rem;
-    }
+@media (max-width: 1300px) {
+  .container {
+    padding: 2rem 1rem 0 4rem;
+  }
 }
 
-@media (max-width:1110px) {
-    .container {
-        padding: 2rem 0rem 0 2rem;
-    }
+@media (max-width: 1110px) {
+  .container {
+    padding: 2rem 0rem 0 2rem;
+  }
 }
 
 .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 2;
-    margin-right: 4rem;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 500;
+  margin-right: 4rem;
 }
 
-.hamburger>div {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 3px 0;
-    transition: all 0.3s ease;
+.hamburger > div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: all 0.3s ease;
 }
 
-.active>div:first-child {
-    transform: rotate(-45deg) translate(-5px, 6px);
+.active > div:first-child {
+  transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.active>div:last-child {
-    transform: rotate(45deg) translate(-5px, -6px);
+.active > div:last-child {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
-.active>div:nth-child(2) {
-    opacity: 0;
+.active > div:nth-child(2) {
+  opacity: 0;
 }
 
 @media (max-width: 950px) {
-    .hamburger {
-        display: flex;
-    }
+  .hamburger {
+    display: flex;
+  }
 
-    .main_list {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        width: 100vw;
-        height: 100vh;
-        padding-top: 60px;
-        text-align: center;
-        z-index: 1;
-    }
+  .main_list {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100vw;
+    height: 100vh;
+    padding-top: 60px;
+    text-align: center;
+  }
 
-    .main_list.active {
-        display: block;
-    }
+  .main_list.active {
+    display: block;
+  }
 
-    .main_list ul {
-        padding-top: 10rem;
-        flex-direction: column;
-    }
+  .main_list ul {
+    padding-top: 10rem;
+    flex-direction: column;
+  }
 
-    .main_list ul li {
-        padding: 10px 0;
-    }
+  .main_list ul li {
+    padding: 10px 0;
+  }
 }
 
-@media (max-width:480px) {
-    .logo img {
-
-        width: 3rem;
-        height: 3rem;
-        border-radius: 1.5rem;
-        margin-right: 0.5rem;
-    }
+@media (max-width: 480px) {
+  .logo img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    margin-right: 0.5rem;
+  }
 }
 
 @media (max-width: 650px) {
-    .logo img {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 2rem;
-        margin-right: 1rem;
-    }
+  .logo img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    margin-right: 1rem;
+  }
 }

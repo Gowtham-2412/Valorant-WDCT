@@ -1,0 +1,23 @@
+:root {
+  --btn1: #1f2832;
+  --btn2: #ff4655;
+  --textColour: #ffffff;
+  --borderColour: #ff4655;
+}
+
+.Blkbtn {
+  background: var(--btn1);
+  color: var(--textColour);
+  text-decoration: none;
+  font-family: ValorantFont;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  padding: 1rem 1rem;
+  transition: 0.3s;
+  border: 2px solid var(--borderColour);
+  margin: 20px;
+}
+.Blkbtn:hover {
+  background-color: var(--btn2);
+}
