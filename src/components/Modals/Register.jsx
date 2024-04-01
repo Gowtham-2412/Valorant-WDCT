@@ -29,33 +29,91 @@ function MyVerticallyCenteredModal(props) {
   const [formError, setFormError] = useState(false);
   const [resType, setResType] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const submitForm = (event) => {
+    console.log("submit form");
+    event.preventDefault();
+    //console.log(user);
+    console.log(fullName, email, contactNum, payment);
+
+    setIsLoading(true);
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
+      toast.error("Enter a valid Email");
+      setError("Enter a valid Email");
+      setIsLoading(false);
+      setFormError(true);
+
+      return;
+    }
+    if (contactNum.length !== 10) {
+      toast.error("Mobile Number should be of 10 digits");
+      setError("Mobile Number should be of 10 digits");
+      setIsLoading(false);
+      setFormError(true);
+      return;
+    }
+
+    if (
+      fullName.length === 0 ||
+      email.length === 0 ||
+      contactNum.length === 0
+    ) {
+      toast.error("All fields are required");
+      setError("All fields are required");
+      setFormError(true);
+      setIsLoading(false);
+      return;
+    }
+
+    if (payment.type === "application/pdf") {
+      setError("Attach Image format only");
+      setFormError(true);
+      toast.error("Attach Image format only");
+      setIsLoading(false);
+      return;
+    }
+
+    sendData();
+  };
 
   const modalBody = () => {
     if (isLoading) {
-      <p textAlign="center" align="center">
-        <h3 textAlign="center" align="center" className="fw-normal">
-          Submitting Registration ...
-        </h3>
-        <Spinner animation="grow" className="mt-3" />
-      </p>;
+      return (
+        <p textAlign="center" align="center">
+          <h3
+            textAlign="center"
+            align="center"
+            className="fw-normal"
+            style={{ fontFamily: "ValorantFont" }}
+          >
+            Submitting Registration ...
+          </h3>
+          <Spinner animation="border" className="mt-3" variant="danger" />
+        </p>
+      );
     } else {
       if (resType === "success") {
         return (
           <>
-            <h1 textAlign="center" align="center" className="fw-bold">
+            <h2
+              textAlign="center"
+              align="center"
+              className="fw-bold"
+              id={Registercss.congrats}
+            >
               Congratulations!
-            </h1>
+            </h2>
             <p className="modal_right_p">
-              We have successfully received your registration for two day
-              Graphic and Motion Design Workshop 2024. we will contact you very
-              soon.
+              We have successfully received your registration for Valorant
+              Gaming 2024. We will contact you very soon.
               <br />
               <br />
               Join the WhatsApp group if you haven't, through the link below for
-              further updates and information regarding the auditions.
+              further updates and information regarding the event.
               <br />
+              <br></br>
               <a
-                href="https://chat.whatsapp.com/BbeWqd1FsIrHxC3kK2MvMP"
+                href="https://chat.whatsapp.com/HRjeqmPjE916fB95z2QQ3R"
                 target="blank"
                 style={{
                   textDecoration: "underline",
@@ -74,16 +132,15 @@ function MyVerticallyCenteredModal(props) {
           <>
             <h1 className="gradient__text">Already Submitted !</h1>
             <p className="modal_right_p">
-              You have already registered for two day Graphic and Motion Design
-              Workshop 2024 account or mobile number. We will contact you very
-              soon.
+              You have already registered for Valorant Gaming 2024 with this
+              account or mobile number. We will contact you very soon.
               <br />
               <br />
               Join the WhatsApp group if you haven't, through the link below for
-              further updates and information regarding the auditions.
+              further updates and information regarding the event.
               <br />
               <a
-                href="https://chat.whatsapp.com/BbeWqd1FsIrHxC3kK2MvMP"
+                href="https://chat.whatsapp.com/HRjeqmPjE916fB95z2QQ3R"
                 target="blank"
                 style={{
                   textDecoration: "underline",
@@ -184,55 +241,11 @@ function MyVerticallyCenteredModal(props) {
       });
   };
   //form submit
-  const submitForm = (event) => {
-    console.log("submit form");
-    event.preventDefault();
-    //console.log(user);
-    console.log(fullName, email, contactNum, payment);
 
-    setIsLoading(true);
-
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
-      toast.error("Enter a valid Email");
-      setError("Enter a valid Email");
-      setIsLoading(false);
-      setFormError(true);
-      return;
-    }
-    if (contactNum.length !== 10) {
-      toast.error("Mobile Number should be of 10 digits");
-      setError("Mobile Number should be of 10 digits");
-      setIsLoading(false);
-      setFormError(true);
-      return;
-    }
-
-    if (
-      fullName.length === 0 ||
-      email.length === 0 ||
-      contactNum.length === 0
-    ) {
-      toast.error("All fields are required");
-      setError("All fields are required");
-      setFormError(true);
-      setIsLoading(false);
-      return;
-    }
-
-    if (payment.type === "application/pdf") {
-      setError("Attach Image format only");
-      setFormError(true);
-      toast.error("Attach Image format only");
-      setIsLoading(false);
-      return;
-    }
-
-    sendData();
-  };
   console.log(isOpen);
   return (
     <>
-      <ToastContainer theme="dark" />
+      <ToastContainer className={Registercss.toast} theme="dark" />
       <Modal
         {...props}
         size="lg"
@@ -246,107 +259,110 @@ function MyVerticallyCenteredModal(props) {
           <CloseButton
             className={Registercss.Closebtn}
             onClick={props.onHide}
-            variant=""
           />
         </Modal.Header>
         <Modal.Body className={Registercss.modalbody}>
           <div className={Registercss.container}>
             <div className={Registercss.formfields}>
-              <Row className="mb-1">
-                <Form.Group
-                  className="col-12 col-md-12 col-lg-12 my-2 mb-4"
-                  id={Registercss.formgrop}
-                  controlId="formGridEmail"
-                >
-                  <Form.Label>
-                    <h4>TEAM NAME</h4>
-                  </Form.Label>
-                  <Form.Control
-                    className={Registercss.formbg}
-                    type="text"
-                    onChange={(text) => {
-                      setFullName(text.target.value);
-                    }}
-                    value={fullName}
-                    placeholder="Enter full name"
-                    required
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {fullName.length === 0 && "Please provide a valid name."}
-                  </Form.Control.Feedback>
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group
-                  className="col-12 col-md-12 col-lg-12 my-2 mb-4"
-                  controlId="formGridEmail"
-                >
-                  <Form.Label>
-                    <h4>EMAIL ID</h4>
-                  </Form.Label>
-                  <Form.Control
-                    className={Registercss.formbg}
-                    type="email"
-                    onChange={(text) => {
-                      setEmail(text.target.value);
-                    }}
-                    value={email}
-                    placeholder="Enter email address"
-                    required
-                  />
+              <Form onSubmit={(e) => submitForm(e)}>
+                <Row className="mb-1">
+                  <Form.Group
+                    className="col-12 col-md-12 col-lg-12 my-2 mb-4"
+                    id={Registercss.formgrop}
+                    controlId="formGridEmail"
+                  >
+                    <Form.Label>
+                      <h4>TEAM NAME</h4>
+                    </Form.Label>
+                    <Form.Control
+                      className={Registercss.formbg}
+                      type="text"
+                      onChange={(text) => {
+                        setFullName(text.target.value);
+                      }}
+                      value={fullName}
+                      placeholder="Enter full name"
+                      required
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {fullName.length === 0 && "Please provide a valid name."}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
 
-                  <Form.Control.Feedback type="invalid">
-                    {email.length === 0 && "Please provide a valid email."}
-                  </Form.Control.Feedback>
-                </Form.Group>
-              </Row>
-              <Row className="mb-1">
-                <Form.Group
-                  className="col-12 col-md-12 col-lg-12 my-2 mb-4"
-                  controlId="formGridPassword"
-                >
-                  <Form.Label>
-                    <h4>PHONE NUMBER</h4>
-                  </Form.Label>
-                  <Form.Control
-                    className={Registercss.formbg}
-                    type="tel"
-                    onChange={(text) => {
-                      setContactNum(text.target.value);
-                    }}
-                    value={contactNum}
-                    placeholder="Enter phone number"
-                    required
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {contactNum.length !== 10 &&
-                      "Please provide a valid phone number."}
-                  </Form.Control.Feedback>
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group
-                  className="col-12 col-md-12 col-lg-12 my-2 mb-4"
-                  controlId="formFileLg"
-                >
-                  <Form.Label className={Registercss.paymentlabel}>
-                    <h4>PAYMENT PROOF</h4>
-                  </Form.Label>
-                  <Form.Control
-                    className={Registercss.formbg}
-                    onChange={(text) => {
-                      setPayment(text.target.files[0]);
-                    }}
-                    accept="image/*"
-                    type="file"
-                    required
-                  ></Form.Control>
-                  <Form.Control.Feedback type="invalid">
-                    {payment.type === "application/pdf" &&
-                      "Please select a valid image payment proof."}
-                  </Form.Control.Feedback>
-                </Form.Group>
-              </Row>
+                <Row>
+                  <Form.Group
+                    className="col-12 col-md-12 col-lg-12 my-2 mb-4"
+                    controlId="formGridEmail"
+                  >
+                    <Form.Label>
+                      <h4>EMAIL ID</h4>
+                    </Form.Label>
+                    <Form.Control
+                      className={Registercss.formbg}
+                      type="email"
+                      onChange={(text) => {
+                        setEmail(text.target.value);
+                      }}
+                      value={email}
+                      placeholder="Enter email address"
+                      required
+                    />
+
+                    <Form.Control.Feedback type="invalid">
+                      {email.length === 0 && "Please provide a valid email."}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
+                <Row className="mb-1">
+                  <Form.Group
+                    className="col-12 col-md-12 col-lg-12 my-2 mb-4"
+                    controlId="formGridPassword"
+                  >
+                    <Form.Label>
+                      <h4>PHONE NUMBER</h4>
+                    </Form.Label>
+                    <Form.Control
+                      className={Registercss.formbg}
+                      type="tel"
+                      onChange={(text) => {
+                        setContactNum(text.target.value);
+                      }}
+                      value={contactNum}
+                      placeholder="Enter phone number"
+                      required
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {contactNum.length !== 10 &&
+                        "Please provide a valid phone number."}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
+                <Row>
+                  <Form.Group
+                    className="col-12 col-md-12 col-lg-12 my-2 mb-4"
+                    controlId="formFileLg"
+                  >
+                    <Form.Label className={Registercss.paymentlabel}>
+                      <h4>PAYMENT PROOF</h4>
+                    </Form.Label>
+                    <Form.Control
+                      className={Registercss.formbg}
+                      onChange={(text) => {
+                        setPayment(text.target.files[0]);
+                      }}
+                      accept="image/*"
+                      type="file"
+                      required
+                    ></Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                      {payment.type === "application/pdf" &&
+                        "Please select a valid image payment proof."}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
+              </Form>
+              ,
             </div>
             <div
               style={{
@@ -364,7 +380,20 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Body>
         <Modal.Footer className={Registercss.modalfooter}>
           <Blkbtn text="CLOSE" onClick={props.onHide} />
-          <Redbtn text="SUBMIT " type="submit" onClick={submitForm} />
+
+          {isLoading ? (
+            <div
+              className={Registercss.submitbtn}
+              variant="primary"
+              // type="submit"
+            >
+              <Spinner animation="border" size="lg" variant="danger" />
+            </div>
+          ) : (
+            <div>
+              <Redbtn text="SUBMIT " type="submit" onClick={submitForm} />
+            </div>
+          )}
         </Modal.Footer>
       </Modal>
       {/* Api Response Model */}
@@ -375,19 +404,24 @@ function MyVerticallyCenteredModal(props) {
           setResType("");
           setError("");
         }}
-        size="lg"
+        size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
+        <Modal.Header className={Registercss.responseModal}>
+          <CloseButton
+            onClick={() => setIsOpen(false)}
+            className={Registercss.Closebtn}
+            variant="danger"
+          ></CloseButton>
           {/* <Modal.Title id="contained-modal-title-vcenter">
             Modal heading
           </Modal.Title> */}
         </Modal.Header>
-        <Modal.Body>{modalBody()}</Modal.Body>
-        <Modal.Footer>
-          {/* <Button onClick={() => setIsOpen(false)}>Close</Button> */}
-        </Modal.Footer>
+        <Modal.Body className={Registercss.responseModal}>
+          {modalBody()}
+        </Modal.Body>
+        {/* <Button onClick={() => setIsOpen(false)}>Close</Button> */}
       </Modal>
     </>
   );
