@@ -26,6 +26,7 @@ function MyVerticallyCenteredModal(props) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [formError, setFormError] = useState(false);
   const [resType, setResType] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -154,7 +155,7 @@ function MyVerticallyCenteredModal(props) {
     var config = {
       method: "post",
       // url: "https://ccaaudition.ccanitd.in/api/auditions",
-      url: "https://ccaaudition.ccanitd.in/api/designworkshopregistrionscc244b9737c2b6ef26bd0f7827653c9d27c10b7c",
+      url: "https://ccaaudition.ccanitd.in/api/valorantgamingregistrionscc244b9737c2b6ef26bd0f7827653c9d27c10b7c",
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -182,7 +183,6 @@ function MyVerticallyCenteredModal(props) {
         setIsLoading(false);
       });
   };
-
   //form submit
   const submitForm = (event) => {
     console.log("submit form");
@@ -193,17 +193,17 @@ function MyVerticallyCenteredModal(props) {
     setIsLoading(true);
 
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
-      setIsOpen(true);
       toast.error("Enter a valid Email");
       setError("Enter a valid Email");
       setIsLoading(false);
+      setFormError(true);
       return;
     }
     if (contactNum.length !== 10) {
-      setIsOpen(true);
       toast.error("Mobile Number should be of 10 digits");
       setError("Mobile Number should be of 10 digits");
       setIsLoading(false);
+      setFormError(true);
       return;
     }
 
@@ -212,20 +212,21 @@ function MyVerticallyCenteredModal(props) {
       email.length === 0 ||
       contactNum.length === 0
     ) {
-      setIsOpen(true);
       toast.error("All fields are required");
       setError("All fields are required");
+      setFormError(true);
       setIsLoading(false);
       return;
     }
 
     if (payment.type === "application/pdf") {
-      setIsOpen(true);
       setError("Attach Image format only");
+      setFormError(true);
       toast.error("Attach Image format only");
       setIsLoading(false);
       return;
     }
+
     sendData();
   };
   console.log(isOpen);
