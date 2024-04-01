@@ -14,7 +14,7 @@ ToastContainer {
   z-index: 10000;
 }
 .toast {
-  z-index: 1000 !important;
+  z-index: 10000 !important;
 }
 h2 {
   font-family: ValorantFont;

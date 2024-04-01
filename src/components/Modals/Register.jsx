@@ -37,9 +37,20 @@ function MyVerticallyCenteredModal(props) {
 
     setIsLoading(true);
 
+    if (
+      fullName.length === 0 ||
+      email.length === 0 ||
+      contactNum.length === 0||
+      payment.length === 0
+    ) {
+      toast.error("All fields are required");
+      setFormError(true);
+      setIsLoading(false);
+      return;
+    }
+
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
       toast.error("Enter a valid Email");
-      setError("Enter a valid Email");
       setIsLoading(false);
       setFormError(true);
 
@@ -47,26 +58,13 @@ function MyVerticallyCenteredModal(props) {
     }
     if (contactNum.length !== 10) {
       toast.error("Mobile Number should be of 10 digits");
-      setError("Mobile Number should be of 10 digits");
       setIsLoading(false);
       setFormError(true);
       return;
     }
 
-    if (
-      fullName.length === 0 ||
-      email.length === 0 ||
-      contactNum.length === 0
-    ) {
-      toast.error("All fields are required");
-      setError("All fields are required");
-      setFormError(true);
-      setIsLoading(false);
-      return;
-    }
 
     if (payment.type === "application/pdf") {
-      setError("Attach Image format only");
       setFormError(true);
       toast.error("Attach Image format only");
       setIsLoading(false);
@@ -221,23 +219,21 @@ function MyVerticallyCenteredModal(props) {
 
     axios(config)
       .then(function (response) {
-        if (response.status == 201) {
+        if (response.status === 201) {
           setResType("success");
-        } else {
-          let r = response.data;
-          console.log("response of api call", r);
-          if (r?.email || r?.contact_number) {
-            setResType("exists");
-          } else {
-            setResType("error");
-          }
         }
         setIsLoading(false);
         setIsOpen(true);
       })
       .catch(function (error) {
-        setResType("error");
+          const r=error.response.data.message;
+          if(r?.email || r?.contact_number){
+            setResType("exists");
+          }else{
+            setResType("error");
+          }
         setIsLoading(false);
+        setIsOpen(true);
       });
   };
   //form submit

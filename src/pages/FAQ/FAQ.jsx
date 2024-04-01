@@ -19,7 +19,9 @@ const FaqComponent = (props) => {
         </label>
 
         <div className={faqcss.collapsible_text}>
-          <p>{props.para ? props.para : "No Para defined"}</p>
+          <p style={{
+          color: "black",
+        }}>{props.para ? props.para : "No Para defined"}</p>
         </div>
       </div>
     </div>
