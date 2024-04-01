@@ -43,7 +43,9 @@ export const Contact = () => {
       <Navbar />
       <div className={contactcss.box}>
         <div className={contactcss.contactUs}>
-          <h2>Contact Us</h2>
+          <h2 style={{
+            color:'white'
+          }}>Contact Us</h2>
 
           <div className={contactcss.cards_container}>
             {cardItems.map((element, index) => {

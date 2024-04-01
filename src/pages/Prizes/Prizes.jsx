@@ -30,7 +30,9 @@ export const Prizes = () => {
       <Navbar />
       <div className={prizecss.box}>
         <div className={prizecss.prize_menu}>
-          <h2>PRIZES</h2>
+          <h2 style={{
+            color:'white'
+          }}>PRIZES</h2>
 
           <div className={prizecss.cards_container}>
             {cardItems.map((element, index) => {
