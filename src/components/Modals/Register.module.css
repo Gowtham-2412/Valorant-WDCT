@@ -1,3 +1,7 @@
+@font-face {
+  font-family: ValorantFont;
+  src: url(../../assets/fonts/ValoFont.ttf) format(truetype);
+}
 :root {
   --modalbg: #0f1923;
   --textColorR: #ff4655;
@@ -6,11 +10,31 @@
 h1 {
   color: var(--textColorW);
 }
+ToastContainer {
+  z-index: 10000;
+}
+.toast {
+  z-index: 10000 !important;
+}
+h2 {
+  font-family: ValorantFont;
+  color: var(--textColorR);
+}
+p {
+  color: var(--textColorW);
+}
 h4 {
   color: var(--textColorW);
 }
 h5 {
   color: var(--textColorW);
+}
+#congrats {
+  font-family: ValorantFont;
+  font-size: 40px;
+}
+.responseModal {
+  background-color: #0f1923;
 }
 .modalheader {
   background-color: var(--modalbg);
@@ -31,6 +55,26 @@ h5 {
   h4 {
     font-size: 20px;
   }
+}
+.submitbtn {
+  display: flex;
+  height: 61px;
+  width: 116px;
+  background: var(--btn1);
+  color: var(--textColour);
+  text-decoration: none;
+  font-family: ValorantFont;
+  font-size: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  transition: 0.3s;
+  border: 2px solid var(--borderColour);
+}
+.footerSpinner {
+  display: block;
+  justify-content: center;
 }
 .formfields {
   margin-right: 100px;
@@ -66,5 +110,8 @@ h5 {
   .modalfooter {
     display: flex;
     justify-content: center;
+  }
+  #congrats {
+    font-size: 33px;
   }
 }
