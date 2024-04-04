@@ -70,7 +70,7 @@
   margin-right: 4rem;
 }
 
-.hamburger > div {
+.hamburger>div {
   width: 25px;
   height: 3px;
   background-color: #fff;
@@ -78,15 +78,15 @@
   transition: all 0.3s ease;
 }
 
-.active > div:first-child {
+.active>div:first-child {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.active > div:last-child {
+.active>div:last-child {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
-.active > div:nth-child(2) {
+.active>div:nth-child(2) {
   opacity: 0;
 }
 
@@ -136,5 +136,9 @@
     height: 4rem;
     border-radius: 2rem;
     margin-right: 1rem;
+  }
+
+  .hamburger {
+    margin-right: 2.5rem;
   }
 }
