@@ -32,23 +32,23 @@ export const FAQ = () => {
   const faqData = [
     {
       id: "1",
-      question: "What is the capital of France?",
-      para: "The capital of France is Paris.",
+      question: "What are the prerequisites for the tournament?",
+      para: "All participants must bring their own laptop with valorant pre-installed. Particpants should bring their own gaming peripherals in the event as it won't be provided.",
     },
     {
       id: "2",
-      question: "What is the capital of China?",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      question: "Will internet connection be provided or do I have to use my own network?",
+      para: "Yes, high speed internet connection will be provided throughout the duration of the tournament.",
     },
     {
       id: "3",
-      question: "What is the capital of India?",
-      para: "The capital of India is New Delhi.",
+      question: "Can I compete as part of a team or do I have to compete individually?",
+      para: "",
     },
     {
       id: "4",
-      question: "What is the capital of West Indies?",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      question: "Is there a minimum rank or skill level required to participate in the Valorant tournament?",
+      para: "Players of all ranks and levels can participate in the tournament.",
     },
   ];
 

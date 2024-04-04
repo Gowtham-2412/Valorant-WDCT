@@ -33,33 +33,25 @@ function MyVerticallyCenteredModal(props) {
           </div>
           <div className={Eventcss.eventDetails}>
             <div className={Eventcss.rows1}>
-              <h4 className={Eventcss.ReventDet}>MATCH TYPE - </h4>
-              <h4 className={Eventcss.WeventDet}> LOREN IPSUM</h4>
+              <h4 className={Eventcss.ReventDet}>MATCH TYPE -</h4>
+
+              <h4 className={Eventcss.WeventDet}>COMPETITIVE</h4>
             </div>
             <div className={Eventcss.rows2}>
-              <h4 className={Eventcss.ReventDet}>VENUE - </h4>
-              <h4 className={Eventcss.WeventDet}> NAB 601</h4>
+              <h4 className={Eventcss.ReventDet}>VENUE</h4>
+              <h4 className={Eventcss.WeventDet}>- NAB 401</h4>
             </div>
             <div className={Eventcss.rows3}>
-              <h4 className={Eventcss.ReventDet}>TIME - </h4>
-              <h4 className={Eventcss.WeventDet}>
-                {" "}
-                10:00 PM - 3:00 AM 8th April ‘24
-              </h4>
+              <h4 className={Eventcss.ReventDet}>TIME </h4>
+              <h4 className={Eventcss.WeventDet}>- 10:00 AM - 6:00 PM, 8th April 2024</h4>
             </div>
             <div className={Eventcss.rows4}>
               <h4 className={Eventcss.ReventDet}>Description - </h4>
             </div>
             <div>
               <p className={Eventcss.descrip}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                vel justo eget sapien aliquet vehicula. Nullam sit amet felis
-                eget nulla fermentum cursus. Cras condimentum ipsum vitae purus
-                malesuada, id suscipit nisi ultricies. Sed id metus ac justo
-                mollis consectetur. Proin id ante sed velit aliquet tempus.
-                Nulla facilisi. Curabitur hendrerit, leo eu fringilla
-                vestibulum, risus eros consequat eros, vitae molestie lorem
-                ipsum in elit.{" "}
+                "Failure doesn't mean GAME OVER, it means try again with experience."
+                Let's get, set ready to put your gaming skills into experience as in Aarohan 2024, Team Aavishkar brings to you one of the most awaited flagship event, Valorant Champions League. Get ready to showcase your gaming competence in Valorant as you compete against your college mates.
               </p>
             </div>
           </div>
