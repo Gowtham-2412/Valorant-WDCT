@@ -107,6 +107,8 @@ h4 {
     width: 200px;
     height: 300px;
     margin-bottom: 20px;
+    margin-right: 0;
+    margin-left: 0;
   }
   .imgBox {
     display: flex;
