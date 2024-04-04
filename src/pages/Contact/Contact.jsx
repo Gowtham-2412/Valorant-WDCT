@@ -35,8 +35,8 @@ const cardItems = [
   {
     img: Somwrik,
     title: "Somwrik Dubey",
-    linkedin: "https://www.instagram.com/somwrik.psd/",
-    instagram: "https://www.linkedin.com/in/somwrik-dubey-8b35771ba/",
+    linkedin: "https://www.linkedin.com/in/somwrik-dubey-8b35771ba/",
+    instagram: "https://www.instagram.com/somwrik.psd/",
     twitter: "https://evaboot.com/blog/linkedin-url-example",
   },
 ];
