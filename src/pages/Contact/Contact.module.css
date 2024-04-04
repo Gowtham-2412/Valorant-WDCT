@@ -6,7 +6,7 @@
 .footer {
   display: flex;
   width: 100vw;
-  position: static;
+  position: relative;
   bottom: 0;
   background: #0f1923;
   height: 8.5rem;
@@ -103,10 +103,16 @@ h2 {
   color: white;
 }
 
-@media (max-width: 1375px) {
+@media (max-width: 1376px) {
   .cards_container {
     align-items: center;
     justify-content: center;
+  }
+
+  .contact {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
   }
 }
 

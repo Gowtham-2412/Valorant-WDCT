@@ -4,7 +4,13 @@
 }
 
 .faq_container {
-  padding: 4rem 4rem;
+  padding: 2rem 4rem;
+}
+
+.faqs {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 90vh;
 }
 
 h1 {
@@ -16,13 +22,14 @@ h1 {
 .footer {
   display: flex;
   width: 100vw;
-  position: relative;
+  position: fixed;
   bottom: 0;
   background: #0f1923;
-  height: 38.9vh;
+  height: 8.5rem;
   border-radius: 5rem 5rem 0 0;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .wrapper {
@@ -102,6 +109,8 @@ h1 {
   top: 25px;
   background-image: url("../../assets/imgs/caret-up-solid.svg");
 }
+
+@media (max-width:1024px) {}
 
 @media screen and (max-width: 768px) {
   .wrapper .collapsible label {

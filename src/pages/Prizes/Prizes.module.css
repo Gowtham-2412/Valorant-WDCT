@@ -6,7 +6,7 @@
 .footer {
   display: flex;
   width: 100vw;
-  position: static;
+  position: relative;
   bottom: 0;
   background: #0f1923;
   height: 8.5rem;
@@ -95,6 +95,18 @@ h2 {
   .cards_container {
     align-items: center;
     justify-content: center;
+  }
+
+  .prizes {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+  }
+}
+
+@media (max-width:1024px) {
+  .card {
+    height: 500px;
   }
 }
 
