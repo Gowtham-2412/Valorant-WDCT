@@ -1,6 +1,5 @@
 import React from "react";
 import contactcss from "../Contact/Contact.module.css";
-import cardImg from "../../assets/imgs/arhn.jpg";
 import Saikat from "../../assets/imgs/Saikat Sarkar.jpg";
 import Rishav from "../../assets/imgs/Rishav Jha.jpg";
 import Arya from "../../assets/imgs/Arya Sah.jpg";
