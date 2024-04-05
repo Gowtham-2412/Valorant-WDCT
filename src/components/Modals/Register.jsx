@@ -40,7 +40,7 @@ function MyVerticallyCenteredModal(props) {
     if (
       fullName.length === 0 ||
       email.length === 0 ||
-      contactNum.length === 0||
+      contactNum.length === 0 ||
       payment.length === 0
     ) {
       toast.error("All fields are required");
@@ -62,7 +62,6 @@ function MyVerticallyCenteredModal(props) {
       setFormError(true);
       return;
     }
-
 
     if (payment.type === "application/pdf") {
       setFormError(true);
@@ -226,12 +225,12 @@ function MyVerticallyCenteredModal(props) {
         setIsOpen(true);
       })
       .catch(function (error) {
-          const r=error.response.data.message;
-          if(r?.email || r?.contact_number){
-            setResType("exists");
-          }else{
-            setResType("error");
-          }
+        const r = error.response.data.message;
+        if (r?.email || r?.contact_number) {
+          setResType("exists");
+        } else {
+          setResType("error");
+        }
         setIsLoading(false);
         setIsOpen(true);
       });
@@ -241,7 +240,7 @@ function MyVerticallyCenteredModal(props) {
   console.log(isOpen);
   return (
     <>
-      <ToastContainer className={Registercss.toast} theme="dark" />
+      <ToastContainer className={Registercss.toast1} theme="dark" />
       <Modal
         {...props}
         size="lg"

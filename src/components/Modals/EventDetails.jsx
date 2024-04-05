@@ -33,9 +33,9 @@ function MyVerticallyCenteredModal(props) {
           </div>
           <div className={Eventcss.eventDetails}>
             <div className={Eventcss.rows1}>
-              <h4 className={Eventcss.ReventDet}>MATCH TYPE -</h4>
+              <h4 className={Eventcss.ReventDet}>MATCH TYPE</h4>
 
-              <h4 className={Eventcss.WeventDet}>COMPETITIVE</h4>
+              <h4 className={Eventcss.WeventDet}>- COMPETITIVE</h4>
             </div>
             <div className={Eventcss.rows2}>
               <h4 className={Eventcss.ReventDet}>VENUE</h4>
@@ -43,15 +43,21 @@ function MyVerticallyCenteredModal(props) {
             </div>
             <div className={Eventcss.rows3}>
               <h4 className={Eventcss.ReventDet}>TIME </h4>
-              <h4 className={Eventcss.WeventDet}>- 10:00 AM - 6:00 PM, 8th April 2024</h4>
+              <h4 className={Eventcss.WeventDet}>
+                - 10:00 AM - 6:00 PM, 8th April 2024
+              </h4>
             </div>
             <div className={Eventcss.rows4}>
               <h4 className={Eventcss.ReventDet}>Description - </h4>
             </div>
             <div>
               <p className={Eventcss.descrip}>
-                "Failure doesn't mean GAME OVER, it means try again with experience."
-                Let's get, set ready to put your gaming skills into experience as in Aarohan 2024, Team Aavishkar brings to you one of the most awaited flagship event, Valorant Champions League. Get ready to showcase your gaming competence in Valorant as you compete against your college mates.
+                "Failure doesn't mean GAME OVER, it means try again with
+                experience." Let's get, set ready to put your gaming skills into
+                experience as in Aarohan 2024, Team Aavishkar brings to you one
+                of the most awaited flagship event, Valorant Champions League.
+                Get ready to showcase your gaming competence in Valorant as you
+                compete against your college mates.
               </p>
             </div>
           </div>

@@ -102,6 +102,38 @@ h4 {
   letter-spacing: 0.2rem;
   background: #242424;
 }
+@media (max-width: 992px) {
+  .rows1 h4 {
+    font-size: 20px;
+  }
+  .venueimg {
+    width: 250px;
+    height: 400px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .imgBox {
+    display: flex;
+    justify-content: center;
+  }
+  .modalfooter {
+    display: flex;
+    justify-content: space-around;
+  }
+  .modalfooter button {
+    scale: 0.9;
+  }
+  .container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+  }
+  .rows3 h4 {
+    font-size: 20px;
+  }
+}
 @media (max-width: 500px) {
   .venueimg {
     width: 200px;
@@ -131,5 +163,19 @@ h4 {
     font-size: 16px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 411px) {
+  .modalfooter button {
+    width: 150px;
+    height: 80px;
+  }
+  .modalfooter {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 397px) {
+  .rows1 h4 {
+    font-size: 20px;
+  }
 }

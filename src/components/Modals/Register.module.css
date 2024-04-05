@@ -10,12 +10,6 @@
 h1 {
   color: var(--textColorW);
 }
-ToastContainer {
-  z-index: 10000;
-}
-.toast {
-  z-index: 10000 !important;
-}
 h2 {
   font-family: ValorantFont;
   color: var(--textColorR);
@@ -39,6 +33,9 @@ h5 {
 .modalheader {
   background-color: var(--modalbg);
 }
+.modalheader h1 {
+  margin-top: 20px;
+}
 .modalbody {
   background-color: var(--modalbg);
   justify-content: center;
@@ -56,22 +53,6 @@ h5 {
     font-size: 20px;
   }
 }
-.submitbtn {
-  display: flex;
-  height: 61px;
-  width: 116px;
-  background: var(--btn1);
-  color: var(--textColour);
-  text-decoration: none;
-  font-family: ValorantFont;
-  font-size: 1.1rem;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 0.1rem;
-  font-weight: 400;
-  transition: 0.3s;
-  border: 2px solid var(--borderColour);
-}
 .footerSpinner {
   display: block;
   justify-content: center;
@@ -79,10 +60,6 @@ h5 {
 .formfields {
   margin-right: 100px;
   margin-left: 20px;
-}
-.btn-close {
-  background-image: url("../../assets/imgs/Vector.png");
-  background-color: aqua;
 }
 .registerbtn {
   background: rgba(255, 255, 255, 0.08);
@@ -100,7 +77,7 @@ h5 {
 .container {
   display: flex;
 }
-@media (max-width: 500px) {
+@media (max-width: 994px) {
   .container {
     display: block;
   }
