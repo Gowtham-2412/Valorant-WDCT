@@ -43,7 +43,7 @@ export const FAQ = () => {
     {
       id: "3",
       question: "Can I compete as part of a team or do I have to compete individually?",
-      para: "",
+      para: "There will be a team of 5 players. Each team will have a team leader who takes responsibility to complete the registration and payment for the team.",
     },
     {
       id: "4",
