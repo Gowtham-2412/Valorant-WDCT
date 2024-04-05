@@ -20,7 +20,10 @@
 .Redbtn:hover {
   background: var(--btn1);
 }
+
 .disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  /* Styles for disabled button */
+  opacity: 0.5; /* For example, reducing opacity */
+  cursor: not-allowed; /* Changing cursor style */
+  /* Add any other styles you want to apply to disabled buttons */
 }

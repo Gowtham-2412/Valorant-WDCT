@@ -366,6 +366,7 @@ function MyVerticallyCenteredModal(props) {
                       sitekey={SITE_KEY}
                       onChange={onChange}
                     />
+                    ,
                   </Form.Group>
                 </Row>
               </Form>
@@ -441,6 +442,7 @@ function MyVerticallyCenteredModal(props) {
 
 function Register() {
   const [RmodalShow, RsetModalShow] = React.useState(false);
+
   EventDetails();
   const handlebtn = () => {
     RsetModalShow(true);
