@@ -52,9 +52,10 @@
       
     -->
   <script>
-    $(window).on("load", function () {
+    // Add a delay time for the loader to fade out
+    setTimeout(function () {
       $(".loader").fadeOut("slow");
-    });
+    }, 4000); // Adjust the delay time as per your requirement (in milliseconds)
   </script>
 </body>
 
