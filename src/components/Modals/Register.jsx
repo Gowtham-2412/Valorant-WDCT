@@ -19,7 +19,10 @@ const SITE_KEY = "6LfDoLEpAAAAAI3LGKc65_BVrEF6FnLgby2uNFv-";
 
 function MyVerticallyCenteredModal(props) {
   const [fullName, setFullName] = useState("");
-
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState({
+    captcha:false,
+    g_captch_response: "",
+  });
   const [email, setEmail] = useState("");
 
   const [contactNum, setContactNum] = useState("");
@@ -199,10 +202,9 @@ function MyVerticallyCenteredModal(props) {
     let formData = {
       email: email,
       name: fullName,
-
       contact_number: contactNum,
-
       payment: payment,
+      'g-captcha-response': isCaptchaVerified.g_captch_response,
     };
 
     console.log("form Data", formData);
@@ -240,10 +242,12 @@ function MyVerticallyCenteredModal(props) {
   //form submit
 
   console.log(isOpen);
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
   function onChange(value) {
     console.log("Captcha value:", value);
-    setIsCaptchaVerified(true);
+    setIsCaptchaVerified({
+      captcha:true,
+      g_captch_response: value,
+    });
   }
   return (
     <>
@@ -408,7 +412,7 @@ function MyVerticallyCenteredModal(props) {
                 text="SUBMIT "
                 type="submit"
                 onClick={submitForm}
-                disabled={!isCaptchaVerified}
+                disabled={!isCaptchaVerified.captcha}
               />
             </div>
           )}
