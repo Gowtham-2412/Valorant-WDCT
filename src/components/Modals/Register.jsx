@@ -274,7 +274,7 @@ function MyVerticallyCenteredModal(props) {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      <h4>TEAM NAME</h4>
+                      <h4>NAME</h4>
                     </Form.Label>
                     <Form.Control
                       className={Registercss.formbg}
@@ -380,7 +380,13 @@ function MyVerticallyCenteredModal(props) {
               }}
               className={Registercss.QrCode}
             >
-              <h5>Scan the QR to pay (Rs 149/-)</h5>
+              <h5>Scan the QR to pay</h5>
+              <h5 style={{
+                display:'flex'
+              }}> <p style={{
+                textDecoration: "line-through",
+                marginRight: 5
+              }}> Rs 149</p>(Rs 100/-)</h5>
               <img src={paymentQR} width={200} height={200} alt="Payment QR" />
             </div>
           </div>

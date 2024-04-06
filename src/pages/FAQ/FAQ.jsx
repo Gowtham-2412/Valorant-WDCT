@@ -3,6 +3,7 @@ import faqcss from "./FAQ.module.css";
 import { Navbar } from "../../components/Navbar/Navbar";
 import EventDetails from "../../components/Modals/EventDetails";
 import Register from "../../components/Modals/Register";
+import { FAQ_DATA } from "../../util/constants";
 
 const FaqComponent = (props) => {
   return (
@@ -29,35 +30,13 @@ const FaqComponent = (props) => {
 };
 
 export const FAQ = () => {
-  const faqData = [
-    {
-      id: "1",
-      question: "What are the prerequisites for the tournament?",
-      para: "All participants must bring their own laptop with valorant pre-installed. Particpants should bring their own gaming peripherals in the event as it won't be provided.",
-    },
-    {
-      id: "2",
-      question: "Will internet connection be provided or do I have to use my own network?",
-      para: "Yes, high speed internet connection will be provided throughout the duration of the tournament.",
-    },
-    {
-      id: "3",
-      question: "Can I compete as part of a team or do I have to compete individually?",
-      para: "There will be a team of 5 players. Each team will have a team leader who takes responsibility to complete the registration and payment for the team.",
-    },
-    {
-      id: "4",
-      question: "Is there a minimum rank or skill level required to participate in the Valorant tournament?",
-      para: "Players of all ranks and levels can participate in the tournament.",
-    },
-  ];
 
   return (
     <div className={faqcss.faqs}>
       <Navbar />
       <div className={faqcss.faq_container}>
         <h1>FREQUENTLY ASKED QUESTIONS</h1>
-        {faqData.map((item, index) => (
+        {FAQ_DATA.map((item, index) => (
           <FaqComponent
             key={item.id}
             id={item.id}
