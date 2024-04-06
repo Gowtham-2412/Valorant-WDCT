@@ -12,7 +12,7 @@ export const Home = () => {
             <Navbar />
             <div className={homecss.main}>
                 <h1>VALORANT</h1>
-                <Timer eventDate={new Date(2024, 3, 8)} />
+                <Timer eventDate={EVENT_START_DATE} />
             </div>
             <Footer />
         </div>
