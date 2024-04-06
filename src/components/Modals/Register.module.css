@@ -54,7 +54,25 @@ h5 {
   }
 }
 .recaptcha {
-  margin-top: 12px;
+  margin-top: 15px;
+  justify-content: center;
+  display: flex;
+}
+.submitbtn {
+  display: flex;
+  height: 61px;
+  width: 116px;
+  background: var(--btn1);
+  color: var(--textColour);
+  text-decoration: none;
+  font-family: ValorantFont;
+  font-size: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  transition: 0.3s;
+  border: 2px solid var(--borderColour);
 }
 .footerSpinner {
   display: block;

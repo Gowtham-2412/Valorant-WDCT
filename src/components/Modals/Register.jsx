@@ -274,7 +274,7 @@ function MyVerticallyCenteredModal(props) {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      <h4>TEAM NAME</h4>
+                      <h4>NAME</h4>
                     </Form.Label>
                     <Form.Control
                       className={Registercss.formbg}
@@ -361,13 +361,13 @@ function MyVerticallyCenteredModal(props) {
                       {payment.type === "application/pdf" &&
                         "Please select a valid image payment proof."}
                     </Form.Control.Feedback>
-                    <ReCAPTCHA
+                  </Form.Group>
+                </Row>
+                <ReCAPTCHA
                       className={Registercss.recaptcha}
                       sitekey={SITE_KEY}
                       onChange={onChange}
                     />
-                  </Form.Group>
-                </Row>
               </Form>
               ,
             </div>
@@ -380,7 +380,13 @@ function MyVerticallyCenteredModal(props) {
               }}
               className={Registercss.QrCode}
             >
-              <h5>Scan the QR to pay (Rs 149/-)</h5>
+              <h5>Scan the QR to pay</h5>
+              <h5 style={{
+                display:'flex'
+              }}> <p style={{
+                textDecoration: "line-through",
+                marginRight: 5
+              }}> Rs 149</p>(Rs 100/-)</h5>
               <img src={paymentQR} width={200} height={200} alt="Payment QR" />
             </div>
           </div>
@@ -441,6 +447,7 @@ function MyVerticallyCenteredModal(props) {
 
 function Register() {
   const [RmodalShow, RsetModalShow] = React.useState(false);
+
   EventDetails();
   const handlebtn = () => {
     RsetModalShow(true);

@@ -18,9 +18,6 @@ export const Navbar = () => {
           <a href="https://arhn.co.in/" target="_blank">
             <img src={arhn} alt="" />
           </a>
-          <a href="https://www.ccanitd.in/" target="_blank">
-            <img src={cca} alt="" />
-          </a>
         </div>
         <div
           className={`${navcss.hamburger} ${showNavLinks ? navcss.active : ""}`}
