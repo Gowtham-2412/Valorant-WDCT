@@ -5,7 +5,7 @@ import Rishav from "../../assets/imgs/Rishav Jha.jpg";
 import Arya from "../../assets/imgs/Arya Sah.jpg";
 import Somwrik from "../../assets/imgs/Somwrik Dubey.jpg";
 
-export const EVENT_START_DATE = new Date(2024, 3, 8);
+export const EVENT_START_DATE = new Date(2024, 3, 9);
 
 export const PRIZES_LIST = [
   {
