@@ -1,6 +1,6 @@
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -13,6 +13,8 @@ import Redbtn from "../Buttons/redBtn";
 import EventDetails from "./EventDetails";
 import Registercss from "./Register.module.css";
 import { Spinner } from "react-bootstrap";
+import ReCAPTCHA from "react-google-recaptcha";
+const SITE_KEY = "6LfDoLEpAAAAAI3LGKc65_BVrEF6FnLgby2uNFv-";
 //modal body for api
 
 function MyVerticallyCenteredModal(props) {
@@ -238,6 +240,11 @@ function MyVerticallyCenteredModal(props) {
   //form submit
 
   console.log(isOpen);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+  function onChange(value) {
+    console.log("Captcha value:", value);
+    setIsCaptchaVerified(true);
+  }
   return (
     <>
       <ToastContainer className={Registercss.toast1} theme="dark" />
@@ -354,6 +361,11 @@ function MyVerticallyCenteredModal(props) {
                       {payment.type === "application/pdf" &&
                         "Please select a valid image payment proof."}
                     </Form.Control.Feedback>
+                    <ReCAPTCHA
+                      className={Registercss.recaptcha}
+                      sitekey={SITE_KEY}
+                      onChange={onChange}
+                    />
                   </Form.Group>
                 </Row>
               </Form>
@@ -386,7 +398,12 @@ function MyVerticallyCenteredModal(props) {
             </div>
           ) : (
             <div>
-              <Redbtn text="SUBMIT " type="submit" onClick={submitForm} />
+              <Redbtn
+                text="SUBMIT "
+                type="submit"
+                onClick={submitForm}
+                disabled={!isCaptchaVerified}
+              />
             </div>
           )}
         </Modal.Footer>

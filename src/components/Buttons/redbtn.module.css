@@ -20,3 +20,7 @@
 .Redbtn:hover {
   background: var(--btn1);
 }
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
