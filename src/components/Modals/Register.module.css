@@ -54,7 +54,9 @@ h5 {
   }
 }
 .recaptcha {
-  margin-top: 12px;
+  margin-top: 15px;
+  justify-content: center;
+  display: flex;
 }
 .submitbtn {
   display: flex;

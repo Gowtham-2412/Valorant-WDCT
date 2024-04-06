@@ -361,14 +361,13 @@ function MyVerticallyCenteredModal(props) {
                       {payment.type === "application/pdf" &&
                         "Please select a valid image payment proof."}
                     </Form.Control.Feedback>
-                    <ReCAPTCHA
+                  </Form.Group>
+                </Row>
+                <ReCAPTCHA
                       className={Registercss.recaptcha}
                       sitekey={SITE_KEY}
                       onChange={onChange}
                     />
-                    ,
-                  </Form.Group>
-                </Row>
               </Form>
               ,
             </div>
