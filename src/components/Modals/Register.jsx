@@ -12,7 +12,6 @@ import Redbtn from "../Buttons/redBtn";
 import EventDetails from "./EventDetails";
 import Registercss from "./Register.module.css";
 import { Spinner } from "react-bootstrap";
-import ReCAPTCHA from "react-google-recaptcha";
 import { db } from "../../firebase";
 import {
   collection,
@@ -22,15 +21,10 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
-const SITE_KEY = "6LfDoLEpAAAAAI3LGKc65_BVrEF6FnLgby2uNFv-";
 //modal body for api
 
 function MyVerticallyCenteredModal(props) {
   const [fullName, setFullName] = useState("");
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState({
-    captcha:false,
-    g_captch_response: "",
-  });
   const [email, setEmail] = useState("");
 
   const [contactNum, setContactNum] = useState("");
@@ -266,7 +260,6 @@ function MyVerticallyCenteredModal(props) {
         contact_number: contactNum.trim(),
         payment_url: paymentProofUrl,
         payment_filename: payment.name || "payment_proof.jpg",
-        captcha_response: isCaptchaVerified.g_captch_response || "",
         registered_at: serverTimestamp(),
       });
 
@@ -288,13 +281,6 @@ function MyVerticallyCenteredModal(props) {
   //form submit
 
   console.log(isOpen);
-  function onChange(value) {
-    console.log("Captcha value:", value);
-    setIsCaptchaVerified({
-      captcha:true,
-      g_captch_response: value,
-    });
-  }
   return (
     <>
       <ToastContainer className={Registercss.toast1} theme="dark" />
@@ -413,13 +399,7 @@ function MyVerticallyCenteredModal(props) {
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Row>
-                <ReCAPTCHA
-                      className={Registercss.recaptcha}
-                      sitekey={SITE_KEY}
-                      onChange={onChange}
-                    />
               </Form>
-              ,
             </div>
             <div
               style={{
@@ -458,7 +438,6 @@ function MyVerticallyCenteredModal(props) {
                 text="SUBMIT "
                 type="submit"
                 onClick={submitForm}
-                disabled={!isCaptchaVerified.captcha}
               />
             </div>
           )}
