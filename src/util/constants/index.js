@@ -48,11 +48,13 @@ export const CONTACT_LIST = [
   {
     img: Dinesh,
     title: "Dinesh",
+    phone: "+91 72078 89943",
     instagram: "https://www.instagram.com/dinesh_b0007/",
   },
   {
     img: Gowtham,
     title: "Sai Gowtham",
+    phone: "+91 9502323161",
     instagram: "https://www.instagram.com/gowtham___2416/",
   },
 ];

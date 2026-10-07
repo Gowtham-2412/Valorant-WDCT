@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import contactcss from "../pages/Contact/Contact.module.css";
@@ -8,6 +8,7 @@ export const Card = ({ element = {}, index = 0, className = "" }) => {
     img = "",
     title = "",
     subtitle = "",
+    phone = "",
     linkedin = "",
     twitter = "",
     instagram = "",
@@ -17,16 +18,30 @@ export const Card = ({ element = {}, index = 0, className = "" }) => {
       {img.length !== 0 && (
         <div className={contactcss.card__border}>
 
-          <img src={img} className={contactcss.card__img} />
+          <img src={img} className={contactcss.card__img} alt={title || "card"} />
         </div>
       )}
       {title.length !== 0 && <h3 className={contactcss.card__name}>{title}</h3>}
       {subtitle.length !== 0 && (
         <h3 className={contactcss.card__name}>{subtitle}</h3>
       )}
+      {phone.length !== 0 && (
+        <a
+          href={`tel:${phone.replace(/\s+/g, "")}`}
+          className={contactcss.phone}
+        >
+          <FaPhoneAlt size={14} />
+          <span>{phone}</span>
+        </a>
+      )}
       <div className={contactcss.socials}>
         {instagram.length !== 0 && (
-          <a href={instagram} target="_blank" className={contactcss.iconAnchor}>
+          <a
+            href={instagram}
+            target="_blank"
+            rel="noreferrer"
+            className={contactcss.iconAnchor}
+          >
             <FaInstagram
               className={contactcss.icons}
               style={{ fontSize: "30" }}
@@ -34,7 +49,12 @@ export const Card = ({ element = {}, index = 0, className = "" }) => {
           </a>
         )}
         {linkedin.length !== 0 && (
-          <a href={linkedin} target="_blank" className={contactcss.iconAnchor}>
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className={contactcss.iconAnchor}
+          >
             <CiLinkedin
               className={contactcss.icons}
               style={{ fontSize: "35" }}
@@ -42,7 +62,12 @@ export const Card = ({ element = {}, index = 0, className = "" }) => {
           </a>
         )}
         {twitter.length !== 0 && (
-          <a href={twitter} target="_blank" className={contactcss.iconAnchor}>
+          <a
+            href={twitter}
+            target="_blank"
+            rel="noreferrer"
+            className={contactcss.iconAnchor}
+          >
             <FaXTwitter
               className={contactcss.icons}
               style={{ fontSize: "25" }}
