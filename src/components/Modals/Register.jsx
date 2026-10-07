@@ -117,7 +117,7 @@ function MyVerticallyCenteredModal(props) {
               <br />
               <br></br>
               <a
-                href="https://chat.whatsapp.com/HYTaTLsgvuVIYQgEmE3feF"
+                href="https://chat.whatsapp.com/J2frOyvEaSgAN3JCNQAg23"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -145,7 +145,7 @@ function MyVerticallyCenteredModal(props) {
               further updates and information regarding the event.
               <br />
               <a
-                href="https://chat.whatsapp.com/HYTaTLsgvuVIYQgEmE3feF"
+                href="https://chat.whatsapp.com/J2frOyvEaSgAN3JCNQAg23"
                 target="_blank"
                 rel="noreferrer"
                 style={{
