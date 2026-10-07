@@ -23,7 +23,7 @@ export const Contact = () => {
 
           <div className={contactcss.cards_container}>
             {CONTACT_LIST.map((element, index) => {
-              return <Card element={element} index={index} />;
+              return <Card element={element} index={index} key={index} />;
             })}
           </div>
         </div>

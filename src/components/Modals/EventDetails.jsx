@@ -39,12 +39,12 @@ function MyVerticallyCenteredModal(props) {
             </div>
             <div className={Eventcss.rows2}>
               <h4 className={Eventcss.ReventDet}>VENUE</h4>
-              <h4 className={Eventcss.WeventDet}>- NAB 401</h4>
+              <h4 className={Eventcss.WeventDet}>- NAB 402</h4>
             </div>
             <div className={Eventcss.rows3}>
               <h4 className={Eventcss.ReventDet}>TIME </h4>
               <h4 className={Eventcss.WeventDet}>
-                - 10:00 AM - 6:00 PM, 9th April 2024
+                - 10:00 AM - 5:00 PM, 11th October 2026
               </h4>
             </div>
             <div className={Eventcss.rows4}>
@@ -54,7 +54,7 @@ function MyVerticallyCenteredModal(props) {
               <p className={Eventcss.descrip}>
                 "Failure doesn't mean GAME OVER, it means try again with
                 experience." Let's get, set ready to put your gaming skills into
-                experience as in Aarohan 2024, Team Aavishkar brings to you one
+                experience as in Aarohan 2026, Team Aavishkar brings to you one
                 of the most awaited flagship event, Valorant Champions League.
                 Get ready to showcase your gaming competence in Valorant as you
                 compete against your college mates.

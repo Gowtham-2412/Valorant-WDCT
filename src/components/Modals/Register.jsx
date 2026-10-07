@@ -1,4 +1,3 @@
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
 import CloseButton from "react-bootstrap/CloseButton";
@@ -14,6 +13,15 @@ import EventDetails from "./EventDetails";
 import Registercss from "./Register.module.css";
 import { Spinner } from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
+import { db } from "../../firebase";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 const SITE_KEY = "6LfDoLEpAAAAAI3LGKc65_BVrEF6FnLgby2uNFv-";
 //modal body for api
 
@@ -107,7 +115,7 @@ function MyVerticallyCenteredModal(props) {
             </h2>
             <p className="modal_right_p">
               We have successfully received your registration for Valorant
-              Gaming 2024. We will contact you very soon.
+              Gaming 2026. We will contact you very soon.
               <br />
               <br />
               Join the WhatsApp group if you haven't, through the link below for
@@ -115,8 +123,9 @@ function MyVerticallyCenteredModal(props) {
               <br />
               <br></br>
               <a
-                href="https://chat.whatsapp.com/HRjeqmPjE916fB95z2QQ3R"
-                target="blank"
+                href="https://chat.whatsapp.com/HYTaTLsgvuVIYQgEmE3feF"
+                target="_blank"
+                rel="noreferrer"
                 style={{
                   textDecoration: "underline",
                   color: "green",
@@ -134,7 +143,7 @@ function MyVerticallyCenteredModal(props) {
           <>
             <h1 className="gradient__text">Already Submitted !</h1>
             <p className="modal_right_p">
-              You have already registered for Valorant Gaming 2024 with this
+              You have already registered for Valorant Gaming 2026 with this
               account or mobile number. We will contact you very soon.
               <br />
               <br />
@@ -142,8 +151,9 @@ function MyVerticallyCenteredModal(props) {
               further updates and information regarding the event.
               <br />
               <a
-                href="https://chat.whatsapp.com/HRjeqmPjE916fB95z2QQ3R"
-                target="blank"
+                href="https://chat.whatsapp.com/HYTaTLsgvuVIYQgEmE3feF"
+                target="_blank"
+                rel="noreferrer"
                 style={{
                   textDecoration: "underline",
                   color: "green",
@@ -193,51 +203,87 @@ function MyVerticallyCenteredModal(props) {
   };
 
   //sendData form
-  const sendData = (token) => {
-    // let formData = new FormData();
+  const sendData = async (token) => {
     console.log("token sendData", token);
-    // formData.entr
     setIsLoading(true);
 
-    let formData = {
-      email: email,
-      name: fullName,
-      contact_number: contactNum,
-      payment: payment,
-      'g-captcha-response': isCaptchaVerified.g_captch_response,
-    };
+    try {
+      const regRef = collection(db, "registrations");
 
-    console.log("form Data", formData);
-    // return
+      // Check if user has already registered with this email or phone number
+      const emailQuery = query(regRef, where("email", "==", email.trim().toLowerCase()));
+      const phoneQuery = query(regRef, where("contact_number", "==", contactNum.trim()));
 
-    var config = {
-      method: "post",
-      // url: "https://ccaaudition.ccanitd.in/api/auditions",
-      url: "https://ccaaudition.ccanitd.in/api/valorantgamingregistrionscc244b9737c2b6ef26bd0f7827653c9d27c10b7c",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      data: formData,
-    };
+      const [emailSnapshot, phoneSnapshot] = await Promise.all([
+        getDocs(emailQuery),
+        getDocs(phoneQuery),
+      ]);
 
-    axios(config)
-      .then(function (response) {
-        if (response.status === 201) {
-          setResType("success");
-        }
+      if (!emailSnapshot.empty || !phoneSnapshot.empty) {
+        setResType("exists");
         setIsLoading(false);
         setIsOpen(true);
-      })
-      .catch(function (error) {
-        const r = error.response.data.message;
-        if (r?.email || r?.contact_number) {
-          setResType("exists");
-        } else {
-          setResType("error");
+        return;
+      }
+
+      // 1. Upload payment screenshot to Cloudinary
+      const cloudName = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
+      const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
+
+      if (!cloudName || !uploadPreset) {
+        throw new Error(
+          "Cloudinary credentials are not set. Please define REACT_APP_CLOUDINARY_CLOUD_NAME and REACT_APP_CLOUDINARY_UPLOAD_PRESET in .env"
+        );
+      }
+
+      const uploadFormData = new FormData();
+      uploadFormData.append("file", payment);
+      uploadFormData.append("upload_preset", uploadPreset);
+      uploadFormData.append("folder", "valorant_payments");
+
+      const cloudinaryRes = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        {
+          method: "POST",
+          body: uploadFormData,
         }
-        setIsLoading(false);
-        setIsOpen(true);
+      );
+
+      if (!cloudinaryRes.ok) {
+        const errorData = await cloudinaryRes.json();
+        throw new Error(
+          errorData?.error?.message || "Failed to upload payment proof to Cloudinary."
+        );
+      }
+
+      const cloudinaryJson = await cloudinaryRes.json();
+      const paymentProofUrl = cloudinaryJson.secure_url;
+
+      // 2. Save registration document with clickable URL in Firestore
+      await addDoc(regRef, {
+        name: fullName.trim(),
+        email: email.trim().toLowerCase(),
+        contact_number: contactNum.trim(),
+        payment_url: paymentProofUrl,
+        payment_filename: payment.name || "payment_proof.jpg",
+        captcha_response: isCaptchaVerified.g_captch_response || "",
+        registered_at: serverTimestamp(),
       });
+
+      setResType("success");
+      // Reset form fields
+      setFullName("");
+      setEmail("");
+      setContactNum("");
+      setPayment("");
+    } catch (err) {
+      console.error("Firebase registration error:", err);
+      setError(err?.message || "Failed to submit registration. Please try again.");
+      setResType("error");
+    } finally {
+      setIsLoading(false);
+      setIsOpen(true);
+    }
   };
   //form submit
 
@@ -390,7 +436,7 @@ function MyVerticallyCenteredModal(props) {
               }}> <p style={{
                 textDecoration: "line-through",
                 marginRight: 5
-              }}> Rs 149</p>(Rs 100/-)</h5>
+              }}> Rs 99</p>(Rs 75/-)</h5>
               <img src={paymentQR} width={200} height={200} alt="Payment QR" />
             </div>
           </div>

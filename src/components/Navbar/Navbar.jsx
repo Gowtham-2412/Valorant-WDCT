@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import arhn from "../../assets/imgs/arhn logo.jpg";
+import arhn from "../../assets/imgs/Aarohan_logo.png";
 import cca from "../../assets/imgs/cca.png";
 import navcss from "./Navbar.module.css";
 

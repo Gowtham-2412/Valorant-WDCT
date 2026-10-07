@@ -19,7 +19,14 @@ export const Prizes = () => {
 
           <div className={prizecss.cards_container}>
             {PRIZES_LIST.map((element, index) => {
-              return <Card element={element} index={index} />;
+              return (
+                <Card
+                  element={element}
+                  index={index}
+                  key={index}
+                  className={prizecss.card}
+                />
+              );
             })}
           </div>
         </div>

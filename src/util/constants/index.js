@@ -1,11 +1,9 @@
-import AarohanTshirt from "../../assets/imgs/arhn_tshirt.jpeg";
+import AarohanTshirt from "../../assets/imgs/Aarohan_tshirt.png";
 import CashPrize from "../../assets/imgs/cash_prize.webp";
-import Saikat from "../../assets/imgs/Saikat Sarkar.jpg";
-import Rishav from "../../assets/imgs/Rishav Jha.jpg";
-import Arya from "../../assets/imgs/Arya Sah.jpg";
-import Somwrik from "../../assets/imgs/Somwrik Dubey.jpg";
+import Dinesh from "../../assets/imgs/Dinesh.png";
+import Gowtham from "../../assets/imgs/Gowtham.png";
 
-export const EVENT_START_DATE = new Date(2024, 3, 9);
+export const EVENT_START_DATE = new Date(2026, 9, 11, 10, 0, 0);
 
 export const PRIZES_LIST = [
   {
@@ -48,27 +46,13 @@ export const FAQ_DATA = [
 
 export const CONTACT_LIST = [
   {
-    img: Saikat,
-    title: "Saikat Sarkar",
-    linkedin: "https://www.linkedin.com/in/saikat-sarkar-395785205/",
-    instagram: "https://www.instagram.com/_saikxx_/",
+    img: Dinesh,
+    title: "Dinesh",
+    instagram: "https://www.instagram.com/dinesh_b0007/",
   },
   {
-    img: Arya,
-    title: "Arya Sah",
-    linkedin: "https://www.linkedin.com/in/arya-sah/",
-    instagram: "https://www.instagram.com/aryasah30/",
-  },
-  {
-    img: Rishav,
-    title: "Rishav Jha",
-    linkedin: "https://www.linkedin.com/in/rishav-devraj/",
-    instagram: "https://www.instagram.com/_d.e.v.r.a.j/",
-  },
-  {
-    img: Somwrik,
-    title: "Somwrik Dubey",
-    linkedin: "https://www.linkedin.com/in/somwrik-dubey-8b35771ba/",
-    instagram: "https://www.instagram.com/somwrik.psd/",
+    img: Gowtham,
+    title: "Sai Gowtham",
+    instagram: "https://www.instagram.com/gowtham___2416/",
   },
 ];

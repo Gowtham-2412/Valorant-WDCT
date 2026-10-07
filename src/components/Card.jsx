@@ -3,7 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import contactcss from "../pages/Contact/Contact.module.css";
-export const Card = ({ element = {}, index = 0 }) => {
+export const Card = ({ element = {}, index = 0, className = "" }) => {
   const {
     img = "",
     title = "",
@@ -13,7 +13,7 @@ export const Card = ({ element = {}, index = 0 }) => {
     instagram = "",
   } = element || {};
   return (
-    <div className={contactcss.card} key={index}>
+    <div className={`${contactcss.card} ${className}`} key={index}>
       {img.length !== 0 && (
         <div className={contactcss.card__border}>
 
