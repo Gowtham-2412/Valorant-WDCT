@@ -2,8 +2,7 @@ import React from "react";
 import contactcss from "../Contact/Contact.module.css";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Card } from "../../components/Card";
-import EventDetails from "../../components/Modals/EventDetails";
-import Register from "../../components/Modals/Register";
+import { Footer } from "../../components/Footer/Footer";
 import { CONTACT_LIST } from "../../util/constants";
 
 
@@ -28,10 +27,7 @@ export const Contact = () => {
           </div>
         </div>
       </div>
-      <div className={contactcss.footer}>
-        <EventDetails />
-        <Register />
-      </div>
+      <Footer />
     </div>
   );
 };

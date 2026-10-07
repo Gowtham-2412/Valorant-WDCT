@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "../../components/Card";
-import EventDetails from "../../components/Modals/EventDetails";
-import Register from "../../components/Modals/Register";
+import { Footer } from "../../components/Footer/Footer";
 import { Navbar } from "../../components/Navbar/Navbar";
 import prizecss from "./Prizes.module.css";
 import { PRIZES_LIST } from "../../util/constants";
@@ -31,10 +30,7 @@ export const Prizes = () => {
           </div>
         </div>
       </div>
-      <div className={prizecss.footer}>
-        <EventDetails />
-        <Register />
-      </div>
+      <Footer />
     </div>
   );
 };

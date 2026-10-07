@@ -1,8 +1,7 @@
 import React from "react";
 import faqcss from "./FAQ.module.css";
 import { Navbar } from "../../components/Navbar/Navbar";
-import EventDetails from "../../components/Modals/EventDetails";
-import Register from "../../components/Modals/Register";
+import { Footer } from "../../components/Footer/Footer";
 import { FAQ_DATA } from "../../util/constants";
 
 const FaqComponent = (props) => {
@@ -45,10 +44,7 @@ export const FAQ = () => {
           />
         ))}
       </div>
-      <div className={faqcss.footer}>
-        <EventDetails />
-        <Register />
-      </div>
+      <Footer />
     </div>
   );
 };
