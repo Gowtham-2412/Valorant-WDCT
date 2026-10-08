@@ -263,63 +263,37 @@ function MyVerticallyCenteredModal(props) {
         registered_at: serverTimestamp(),
       });
 
-      // 3. Automatically append row to Google Sheets via Sheety (or Apps Script fallback)
-      const sheetyUrl = process.env.REACT_APP_SHEETY_API_URL;
-      const sheetsUrl = process.env.REACT_APP_GOOGLE_SHEETS_URL;
+      // 3. Automatically append row to Google Sheets via Sheety
+      const sheetyUrl =
+        process.env.REACT_APP_SHEETY_API_URL ||
+        "https://api.sheety.co/b651bc7e978ee8e0e1073bc107b01946/valorantRegistrations2026/registrations";
 
-      console.log("Sheety URL configured:", sheetyUrl);
-      if (sheetyUrl) {
-        try {
-          const sheetyRes = await fetch(sheetyUrl, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              registration: {
-                docId: docRef.id,
-                name: fullName.trim(),
-                email: email.trim().toLowerCase(),
-                contactNumber: contactNum.trim(),
-                paymentUrl: paymentProofUrl,
-                status: "Pending",
-                registeredAt: new Date().toLocaleString("en-IN", {
-                  timeZone: "Asia/Kolkata",
-                }),
-              },
-            }),
-          });
-          const sheetyData = await sheetyRes.json().catch(() => null);
-          console.log("Sheety response status:", sheetyRes.status, sheetyData);
-        } catch (sheetyErr) {
-          console.error("Sheety sync failed:", sheetyErr);
-        }
-      } else {
-        console.warn("REACT_APP_SHEETY_API_URL is undefined! Ensure it is set in .env or Vercel and app is rebuilt.");
-      } else if (sheetsUrl) {
-        try {
-          await fetch(sheetsUrl, {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-              "Content-Type": "text/plain;charset=utf-8",
-            },
-            body: JSON.stringify({
-              action: "create",
+      try {
+        console.log("Sending registration to Sheety:", sheetyUrl);
+        const sheetyRes = await fetch(sheetyUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            registration: {
               docId: docRef.id,
               name: fullName.trim(),
               email: email.trim().toLowerCase(),
-              contact_number: contactNum.trim(),
-              payment_url: paymentProofUrl,
+              contactNumber: contactNum.trim(),
+              paymentUrl: paymentProofUrl,
               status: "Pending",
-              registered_at: new Date().toLocaleString("en-IN", {
+              registeredAt: new Date().toLocaleString("en-IN", {
                 timeZone: "Asia/Kolkata",
               }),
-            }),
-          });
-        } catch (sheetErr) {
-          console.error("Google Sheets sync failed:", sheetErr);
-        }
+            },
+          }),
+        });
+
+        const sheetyData = await sheetyRes.json().catch(() => null);
+        console.log("Sheety response status:", sheetyRes.status, sheetyData);
+      } catch (sheetyErr) {
+        console.error("Sheety sync failed:", sheetyErr);
       }
 
       setResType("success");
