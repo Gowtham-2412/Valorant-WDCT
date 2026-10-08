@@ -267,9 +267,10 @@ function MyVerticallyCenteredModal(props) {
       const sheetyUrl = process.env.REACT_APP_SHEETY_API_URL;
       const sheetsUrl = process.env.REACT_APP_GOOGLE_SHEETS_URL;
 
+      console.log("Sheety URL configured:", sheetyUrl);
       if (sheetyUrl) {
         try {
-          await fetch(sheetyUrl, {
+          const sheetyRes = await fetch(sheetyUrl, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -288,9 +289,13 @@ function MyVerticallyCenteredModal(props) {
               },
             }),
           });
+          const sheetyData = await sheetyRes.json().catch(() => null);
+          console.log("Sheety response status:", sheetyRes.status, sheetyData);
         } catch (sheetyErr) {
           console.error("Sheety sync failed:", sheetyErr);
         }
+      } else {
+        console.warn("REACT_APP_SHEETY_API_URL is undefined! Ensure it is set in .env or Vercel and app is rebuilt.");
       } else if (sheetsUrl) {
         try {
           await fetch(sheetsUrl, {
