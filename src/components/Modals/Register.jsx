@@ -254,7 +254,7 @@ function MyVerticallyCenteredModal(props) {
       const paymentProofUrl = cloudinaryJson.secure_url;
 
       // 2. Save registration document with clickable URL in Firestore
-      await addDoc(regRef, {
+      const docRef = await addDoc(regRef, {
         name: fullName.trim(),
         email: email.trim().toLowerCase(),
         contact_number: contactNum.trim(),
@@ -263,9 +263,35 @@ function MyVerticallyCenteredModal(props) {
         registered_at: serverTimestamp(),
       });
 
-      // 3. Automatically append row to Google Sheets
+      // 3. Automatically append row to Google Sheets via Sheety (or Apps Script fallback)
+      const sheetyUrl = process.env.REACT_APP_SHEETY_API_URL;
       const sheetsUrl = process.env.REACT_APP_GOOGLE_SHEETS_URL;
-      if (sheetsUrl) {
+
+      if (sheetyUrl) {
+        try {
+          await fetch(sheetyUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              registration: {
+                docId: docRef.id,
+                name: fullName.trim(),
+                email: email.trim().toLowerCase(),
+                contactNumber: contactNum.trim(),
+                paymentUrl: paymentProofUrl,
+                status: "Pending",
+                registeredAt: new Date().toLocaleString("en-IN", {
+                  timeZone: "Asia/Kolkata",
+                }),
+              },
+            }),
+          });
+        } catch (sheetyErr) {
+          console.error("Sheety sync failed:", sheetyErr);
+        }
+      } else if (sheetsUrl) {
         try {
           await fetch(sheetsUrl, {
             method: "POST",
@@ -274,10 +300,13 @@ function MyVerticallyCenteredModal(props) {
               "Content-Type": "text/plain;charset=utf-8",
             },
             body: JSON.stringify({
+              action: "create",
+              docId: docRef.id,
               name: fullName.trim(),
               email: email.trim().toLowerCase(),
               contact_number: contactNum.trim(),
               payment_url: paymentProofUrl,
+              status: "Pending",
               registered_at: new Date().toLocaleString("en-IN", {
                 timeZone: "Asia/Kolkata",
               }),

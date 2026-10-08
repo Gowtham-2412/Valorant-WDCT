@@ -1,0 +1,14 @@
+{
+  "name": "valorant-firestore-sync-functions",
+  "version": "1.0.0",
+  "description": "Real-time sync from Firestore registrations to Google Sheets",
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.0.0",
+    "firebase-functions": "^5.0.0"
+  },
+  "private": true
+}
