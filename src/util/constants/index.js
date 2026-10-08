@@ -3,7 +3,7 @@ import CashPrize from "../../assets/imgs/cash_prize.webp";
 import Dinesh from "../../assets/imgs/Dinesh.png";
 import Gowtham from "../../assets/imgs/Gowtham.png";
 
-export const EVENT_START_DATE = new Date(2026, 9, 11, 10, 0, 0);
+export const EVENT_START_DATE = new Date(2026, 9, 10, 10, 0, 0);
 
 export const PRIZES_LIST = [
   {
