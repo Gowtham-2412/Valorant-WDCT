@@ -263,6 +263,31 @@ function MyVerticallyCenteredModal(props) {
         registered_at: serverTimestamp(),
       });
 
+      // 3. Automatically append row to Google Sheets
+      const sheetsUrl = process.env.REACT_APP_GOOGLE_SHEETS_URL;
+      if (sheetsUrl) {
+        try {
+          await fetch(sheetsUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify({
+              name: fullName.trim(),
+              email: email.trim().toLowerCase(),
+              contact_number: contactNum.trim(),
+              payment_url: paymentProofUrl,
+              registered_at: new Date().toLocaleString("en-IN", {
+                timeZone: "Asia/Kolkata",
+              }),
+            }),
+          });
+        } catch (sheetErr) {
+          console.error("Google Sheets sync failed:", sheetErr);
+        }
+      }
+
       setResType("success");
       // Reset form fields
       setFullName("");
